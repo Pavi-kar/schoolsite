@@ -1,0 +1,269 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+    <!--Bootstrap Icons-->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.3/font/bootstrap-icons.min.css">
+
+
+    <!--Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/all.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+    <title>Welcome to The Quest School</title>
+</head>
+
+<body>
+<section>
+<header>
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="{% url '
+            :home' %}"><img src="{% static 'image/logo/logo_sch.png' %}"
+                                                                           width="100px" height="100px" alt="">The Quest
+                School</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'School_App:home' %}">Home&nbsp;</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                   <li style="color:white;font-size:18px;" class="nav-item">Hello,{{user}}</li>&nbsp;&nbsp;
+                   <li><a class="nav-link" style="color:white;font-size:18px;" href="{% url 'School_App:enroll' %}">Enquire</a></li>&nbsp;&nbsp;
+                    <li><a class="nav-link" style="color:white;font-size:18px;" href="{% url 'School_App:logout' %}">Logout</a></li>&nbsp;&nbsp;
+
+                   {% else %}
+                   <li class="nav-item">
+                     <a class="nav-link" href="{% url 'School_App:register' %}">Register</a>
+                  </li>
+                   <li class="nav-item">
+                     <a class="nav-link" href="{% url 'School_App:login' %}">LogIn</a>
+                  </li>
+                   {% endif %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            Departments
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item"
+                                   href="https://en.wikipedia.org/wiki/Mathematics">Mathematics</a></li>
+                            <li><a class="dropdown-item" href="https://en.wikipedia.org/wiki/Physics">Physics</a></li>
+                            <li><a class="dropdown-item" href="https://en.wikipedia.org/wiki/Chemistry">Chemistry</a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="https://en.wikipedia.org/wiki/Computer_science">Computer
+                                Science</a></li>
+                            <li><a class="dropdown-item" href="https://en.wikipedia.org/wiki/Information_technology">Information
+                                Technology</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="https://en.wikipedia.org/wiki/Commerce">Commerce</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    <li>
+                        <div class="navbar-toggler-icon">
+                            <span class="icon-bar"><i class="fas fa-bars"></i></span>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<section class="hero" id="hero" >
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="true">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="carousel-background">
+                    <img src="{% static 'image/slider/bg_slider_1.jpg' %}" alt="">
+                </div>
+
+                <div class="carousel-container">
+                    <div class="carousel-content-container">
+                        <h2>Welcome to The Quest School</h2>
+                        <p>We believe that choosing the right educational institution is a crucial decision for every
+                            parent and student.
+                            We understand that you are seeking a school that offers exceptional academic opportunities,
+                            and a commitment to holistic development.</p>
+                        <div class="buttons">
+                            <a href="{% url 'School_App:login' %}" class="button1">Know More</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="carousel-background">
+                    <img src="{% static 'image/slider/bg_slider_2.webp' %}" alt="">
+                </div>
+
+                <div class="carousel-container">
+                    <div class="carousel-content-container">
+                        <h2>Beyond Classrooms,</h2>
+                        <p>provides Opportunities to Explore their Interests and Develop New Talents.</p>
+                        <div class="buttons">
+                            <a href="{% url 'School_App:login' %}" class="button1">Admissions</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="false"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</section>
+<section class="about" id="about">
+    <br>
+    <h2 class="about-h2">About Us</h2>
+    <br>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 d-none d-lg-flex">
+                <img src="{% static 'image/about/aboutus.jpeg' %}" width="100%" height="800px" class="img-fluid" alt="">
+            </div>
+            <div class="col-md-6">
+                <div class="about-content">
+                    <br>
+                    <h2>Welcome to The Quest School</h2>
+                    <br>
+                    <p>Our students receive a well-rounded education that prepares them for success in the global arena.
+                        Whether it's in academics, sports, or extracurricular activities, our students are encouraged to
+                        push their boundaries and achieve their goals.</p>
+                    <p>The interest of students is given top priority and counseling is taken up to help students identify their interests and careers. Our course structure is comprehensive and scientifically designed for both teachers and students to evaluate progress.</p>
+                    <div class="buttons">
+                        <a href="{% url 'School_App:home' %}" class="button2">Read More<i class="bi bi-arrow-right-circle-fill"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<br>
+<!-- <section>
+    <br>
+    <h2 class="about-h2">Our Departments</h2>
+    <br>
+    <div class="row">
+        {% for i in course %}
+        <div class="col-lg-4 mb-4">
+            <div class="card" style="margin-left:5%; width: 22rem; height: 28rem;">
+                <img src="{{i.cimg.url}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title text-center">{{i.cname}}</h5><br>
+                    <p class="card-text">{{i.des}}</p>
+
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section> -->
+<section id="contact">
+    <br>
+    <h2 class="about-h2">Contact</h2>
+    <br>
+
+      <!-- Content Row -->
+      <div class="row">
+        <!-- Map Column -->
+        <div class="col-lg-8 mb-4">
+          <!-- Embedded Google Map -->
+            <h4 style="margin-left: 10%;font-family: 'Young Serif', serif;">Our location</h4><br>
+          <iframe width="75%" height="300px" frameborder="0" scrolling="no" style="margin-left: 10%;" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d250644.76835099258!2d76.80241722731466!3d11.014261489558132!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba859af2f971cb5%3A0x2fc1c81e183ed282!2sCoimbatore%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1696571487474!5m2!1sen!2sin"></iframe>
+        </div>
+        <!-- Contact Details Column -->
+        <div class="col-lg-4 mb-4 contact-right">
+          <h4 style="font-family: 'Young Serif', serif;">Address Details</h4><br>
+          <p style="font-family: 'Young Serif', serif;font-size:16px;font-weight:none;">
+            3481 Melrose Place
+            <br>Palakkad Main Rd, Ettimadai, Tamil Nadu 641105
+            <br>
+          </p>
+          <div class="phone">
+              <p>
+            <abbr title="Phone">P</abbr>&nbsp;: (123) 456-7890
+          </p>
+          <p>
+            <abbr title="Email">E</abbr>&nbsp;:
+            <a href="mailto:quest@tqs.in">quest@tqs.in
+            </a>
+          </p>
+          <p>
+            <abbr title="Hours">H</abbr>&nbsp;: Monday - Friday: 9:00 AM to 5:00 PM
+          </p>
+        </div>
+      </div>
+      <!-- /.row -->
+
+      <!-- Contact Form -->
+      <!-- In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
+
+
+    </div>
+</section>
+<footer class="footer">
+        <div class="container">
+            <div class="footer-logo">
+				<a href="{% url 'School_App:home' %}"><img src="{% static 'image/logo/logo_sch.png' %}" width="100px" height="100px" alt=""></a>
+			</div>
+            <!--foote_bottom_ul_amrc ends here-->
+            <p class="copyright text-center">All Rights Reserved. &copy; 2018 <a href="{% url 'School_App:home' %}">The Quest School</a>
+
+            </p>
+            <ul class="social_footer_ul">
+				<li><a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a></li>
+				<li><a href="https://twitter.com/"><i class="fab fa-twitter"></i></a></li>
+				<li><a href="https://in.linkedin.com/"><i class="fab fa-linkedin"></i></a></li>
+				<li><a href="https://github.com/"><i class="fab fa-github"></i></a></li>
+            </ul>
+            <!--social_footer_ul ends here-->
+        </div>
+    </footer>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+<script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    </section>
+<a class="gotopbtn" href=""><i class="fas fa-arrow-up"></i></a>
+</body>
+
+</html>
+
